@@ -1,0 +1,291 @@
+@import url("https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap");
+
+* {
+  font-family: "Google Sans", sans-serif;
+  border: none;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(260deg, #3674b1 0%, #203c64 100%);
+  min-height: 100dvh;
+  padding: 10px;
+}
+
+.img-logo {
+  max-width: 200px;
+  width: 90%;
+  height: auto;
+  margin: 15px auto;
+  border-radius: 8px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 400px;
+  width: 90%;
+  padding: 20px;
+  border-radius: 15px;
+  background-color: #ffffff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.8s ease-out; /* Anima entrada: tempo, tipo de animação */
+}
+
+/* ANIMAÇÃO DE ENTRADA */
+@keyframes slideUp {
+  from {
+    opacity: 0; /* Começa invisível */
+    transform: translateY(40px); /* Começa 20px abaixo */
+  }
+  to {
+    opacity: 1; /* Fica visível */
+    transform: translateY(0); /* Volta à posição normal */
+  }
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #555555;
+}
+
+select {
+  padding: 12px;
+  border: solid 2px #e0e0e0;
+  background-color: #f5f5f5;
+  color: #333333;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Transição suave: propriedade, duração, tipo de animação */
+}
+
+select:focus,
+input:focus {
+  border-color: #667eea; /* Muda cor da borda ao focar */
+  background-color: #ffffff;
+  box-shadow: 0 0 5px rgba(102, 126, 234, 0.3); /* Adiciona sombra ao focar */
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  border: solid 2px #e0e0e0;
+  background-color: #f5f5f5;
+  color: #333333;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease; /* Transição suave: propriedade, duração, tipo de animação */
+}
+
+input::placeholder {
+  color: #999999;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  color: #ffffff;
+  background-color: #667eea;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Transição suave: propriedade, duração, tipo de animação */
+}
+
+button:hover {
+  background-color: #465cc1; /* Escurece ao passar o mouse */
+  transform: translateY(-2px); /* Sobe 2px (efeito de elevação) */
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+button:active {
+  transform: translateY(1px); /* Volta ao clicar */
+}
+
+.info-valores {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+  margin-top: 10px;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  border: solid 2px #e0e0e0;
+}
+
+.valor-br,
+.valor-usd {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.valor-br img,
+.valor-usd img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.valor-br #nome-moeda-para-converter,
+.valor-usd #nome-moeda-convertida {
+  font-size: 15px;
+  color: #666666;
+}
+
+.valor-br span,
+.valor-usd span {
+  font-size: 20px;
+  font-weight: 700;
+  color: #667eea;
+}
+
+.img-arrow {
+  width: 30px;
+  height: auto;
+  margin: 10px auto;
+  /* ROTAÇÃO INICIAL */
+  transform: rotate(0deg);
+  /* A seta começa rotacionada 90 graus para o mobile */
+  /* ANIMAÇÃO SUAVE */
+  transition: transform 0.3s ease;
+  /* 
+    transition - propriedade que vai mudar
+    0.3s - duração
+    e
+    */
+}
+
+/* Responsividade */
+@media (min-width: 620px) {
+  /* Quando tela for ≥ 481px, aplica essas mudanças */
+
+  .img-logo {
+    max-width: 250px; /* Logo um pouco maior */
+  }
+
+  main {
+    width: 85%; /* Pouco mais de espaço */
+    max-width: 600px; /* Aumenta o limite */
+    padding: 30px;
+    gap: 20px;
+  }
+
+  label {
+    font-size: 15px; /* Fonte um pouco maior */
+  }
+
+  select,
+  input {
+    padding: 13px;
+    font-size: 15px;
+  }
+
+  button {
+    padding: 15px;
+    font-size: 17px;
+  }
+
+  /* AQUI COMEÇA A MAGIA - Seta horizontal */
+  .info-valores {
+    flex-direction: row; /* Muda para horizontal */
+    justify-content: space-around;
+    align-items: center;
+    padding: 25px;
+  }
+
+  .valor-br,
+  .valor-usd {
+    flex: 1; /* Divide espaço igualmente */
+    gap: 10px;
+  }
+
+  .valor-br img,
+  .valor-usd img {
+    width: 50px;
+    height: 50px;
+  }
+
+  /* A seta entre os valores */
+  .info-valores .img-arrow {
+    width: 35px;
+    height: auto;
+    margin: 0 10px;
+    transform: rotate(-90deg);
+    /* Remove a rotação - volta ao normal (→) */
+  }
+}
+
+@media (min-width: 1025px) {
+  /* Desktop com todo o conforto */
+
+  body {
+    padding: 20px;
+  }
+
+  .img-logo {
+    max-width: 300px;
+  }
+
+  main {
+    width: 70%; /* Máximo 70% da tela */
+    max-width: 800px;
+    padding: 40px;
+    gap: 25px;
+  }
+
+  label {
+    font-size: 16px;
+  }
+
+  select,
+  input {
+    padding: 14px;
+    font-size: 16px;
+  }
+
+  button {
+    padding: 16px;
+    font-size: 18px;
+  }
+
+  .info-valores {
+    padding: 30px;
+    gap: 20px;
+  }
+
+  .valor-br img,
+  .valor-usd img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .valor-br span:last-child,
+  .valor-usd span:last-child {
+    font-size: 24px;
+  }
+
+  .info-valores > img {
+    width: 40px;
+    height: 40px;
+  }
+}
