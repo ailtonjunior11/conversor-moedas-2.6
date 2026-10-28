@@ -2,7 +2,7 @@ const botaoConverter = document.getElementById("botao-converter"); // Mapeando o
 const selectMoedaConvertida = document.getElementById("moeda-converter-para"); // Mapeando o select onde o usuário irá escolher a moeda para a qual deseja converter
 const selectMoedaParaConverter = document.getElementById("moeda-converter-de"); // Mapeando o select onde o usuário irá escolher a moeda que deseja converter
 
-function converterMoeda() {
+async function converterMoeda() {
   const inputValor = parseFloat(
     document.querySelector(".input-converter-valor").value,
   ); // Mapeando o input onde o usuário irá inserir o valor que deseja converter.
@@ -13,12 +13,18 @@ function converterMoeda() {
     "valor-moeda-convertida",
   ); // Mapeando o elemento onde irá aparecer o valor da moeda convertida para a qual o usuário deseja converter.
 
+  const data = await fetch(
+    "https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL",
+  ).then((response) => response.json());
+
+  // Valores das moedas em tempo real
+  const dolarDoDia = data.USDBRL.high;
+  const euroDoDia = data.EURBRL.high;
+  const bitcoinDoDia = data.BTCBRL.high;
+
   // Valores das moedas
   const realDoDia = 1.0;
-  const dolarDoDia = 5.25;
-  const euroDoDia = 6.2;
   const libraDoDia = 7.3;
-  const bitcoinDoDia = 250000.0;
 
   if (inputValor === "" || isNaN(inputValor)) {
     valorMoedaParaConverter.innerHTML = "";
