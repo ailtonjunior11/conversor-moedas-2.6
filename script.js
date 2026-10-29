@@ -15,14 +15,14 @@ async function converterMoeda() {
 
   const data = await fetch(
     "https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL",
-  ).then((response) => response.json());
+  ).then((response) => response.json()); // API valor das moedas atualizado.
 
   // Valores das moedas em tempo real
   const dolarDoDia = data.USDBRL.high;
   const euroDoDia = data.EURBRL.high;
   const bitcoinDoDia = data.BTCBRL.high;
 
-  // Valores das moedas
+  // Valores das moedas fixados
   const realDoDia = 1.0;
   const libraDoDia = 7.3;
 
